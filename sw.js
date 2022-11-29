@@ -1,5 +1,5 @@
 var tomoriru_setsuna = [
-  "index.thml",
+  "index.html",
   "/icon-192x192.png",
   "/icon-256x256.png",
   "/icon-384x384.png",
