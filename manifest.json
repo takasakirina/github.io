@@ -3,7 +3,7 @@
     "background_color": "#ffffff",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "https://takasakirina.github.io",
+    "start_url": "/index.html",
     "name": "SSEditor",
     "short_name": "SSEd",
     "icons": [
