@@ -1049,7 +1049,7 @@
         while(face4 == ""){
           face_num4 -= 1
           face4 = cha_data[cha_num4][face_num4]
-        }
+        }        
         document.getElementById("id_btn_face4").value = face4
         onButton_face4()
       }//----------------------------------------------------
@@ -1070,6 +1070,8 @@
         }
 
         face4 = cha_data[cha_num4][face_num4]
+
+
         while(face4 == ""){
           face_num4 -= 1
           face4 = cha_data[cha_num4][face_num4]
@@ -1085,6 +1087,7 @@
         onButton_reset()
         select_line_save = 4
         document.getElementById("id_btn_face4").disabled = true
+
         select_face = face4
         select_name = cha_data[cha_num4][face_offset]
         // document.getElementById("id_btn_face4").style.backgroundColor = "#ffffff"
@@ -1442,6 +1445,8 @@
           var arr = Array()
           var range = XLSX.utils.decode_range(sheet["!ref"])
 
+          // console.log(range.e.r)
+
           for(var row=range.s.r; row<=range.e.r; row++){
             arr[row] = Array()
             for(var col=range.s.c; col<=range.e.c; col++){
@@ -1459,8 +1464,16 @@
           return arr
         }
 
+        cha_data = []
+        call_data = []
+        
+        // cha_data.length = 0
+        // call_data.length = 0
+
         cha_data = sheet_to_arr(sheet1)
         call_data = sheet_to_arr(sheet2)
+
+        // console.log(cha_data)
 
         await ini_fun()              
       }
@@ -1637,19 +1650,19 @@
 
         group_num1 = cha_offset
         face_num1 = face_offset
-        cha_num1 = cha_offset 
+        cha_num1 = cha_offset
 
         group_num2 = cha_offset
         face_num2 = face_offset
-        cha_num2 = cha_offset 
+        cha_num2 = cha_offset
 
         group_num3 = cha_offset
         face_num3 = face_offset
-        cha_num3 = cha_offset 
+        cha_num3 = cha_offset
 
         group_num4 = cha_offset
         face_num4 = face_offset
-        cha_num4 = cha_offset 
+        cha_num4 = cha_offset
 
         group_name1 = cha_data[cha_offset][face_offset-1]
         face1 = cha_data[cha_offset][face_offset]
