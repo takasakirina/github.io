@@ -15,6 +15,7 @@
   textarea{
     font-family: inherit;
   }
+  .qr_code {text-align: left;}
 </style>
 
 <body>
@@ -29,7 +30,7 @@
       <textarea  id="id_c_row" type="text" style = "font-size: 200%; width:400px; height:80px; vertical-align: middle;" placeholder="直前の分割点から　0行" ></textarea>
 
       <!-- 分割ポイント -->
-      <input type = "button" value="分割点挿入" style = "font-size: 200%; width:200px; height:80px; vertical-align: middle;" onclick="onButton_c_point();" />            
+      <input type = "button" value="分割点挿入" style = "font-size: 200%; width:200px; height:80px; vertical-align: middle;" onclick="onButton_c_point();" />
     </form>
 
 
@@ -46,15 +47,15 @@
 
       <!-- コピー -->
       <input type = "button" value="コピー" style = "font-size: 200%; width:150px; height:80px; vertical-align: middle;" onclick="onButton_copy();" />
-     
+
       <!-- 選択リセット -->
-      <input id = id_btn_reset type = "button" value="選択解除" style = "font-size: 200%; width:200px; height:80px; vertical-align: middle;" onclick="onButton_reset();" />      
+      <input id = id_btn_reset type = "button" value="選択解除" style = "font-size: 200%; width:200px; height:80px; vertical-align: middle;" onclick="onButton_reset();" />
     </form>
-  
-    
+
+
     <!-- テキストエリア -->
     <textarea id="id_text_box" name="text_box" type="text" style = "font-size: 100%; width:960px; height:450px; margin-bottom:20px;" oninput="onInput_text_box();"></textarea>
-       
+
 <!-- ------------------------------------------------------------------------ -->
 
     <!-- 選択欄１ -->
@@ -71,7 +72,7 @@
 
       <!-- 表情変更 -->
       <input type = "button" value="◀" style = "font-size: 200%; width:100px; height:80px; vertical-align: middle;" onclick="onButton_l1();" />
-      <input type = "button" value="▶" style = "font-size: 200%; width:100px; height:80px; vertical-align: middle;" onclick="onButton_r1();" />      
+      <input type = "button" value="▶" style = "font-size: 200%; width:100px; height:80px; vertical-align: middle;" onclick="onButton_r1();" />
     </form>
 
 <!-- ------------------------------------------------------------------------ -->
@@ -141,20 +142,21 @@
 
       <input type = "button" value="追記" style = "font-size: 200%; width:160px; height:80px; vertical-align: middle;" onclick="onButton_w1();" />
     </form>
-   
+
 
     <br><br>
-    
+
     <!-- 読込 -->
     <input id = id_read type = "file" style = "font-size: 200%; width:700px; height:100px;" accept=".xlsx" onclick="onButton_read();" />
 
     <br><br>
-    
-    <a href="./new_cha_data.xlsx" style = "font-size: 200%;">キャラクターデータ雛形（xlsx）</a>   
+
+    <a href="./new_cha_data.xlsx" style = "font-size: 200%;">キャラクターデータ雛形（xlsx）</a>
 
     <br><br>
 
     <p>
+      <!-- <div class="qr_code"><img src="QR_SSEd.png"></div> -->
       キーボードショートカット一覧<br>
       ctrl + Enter     ： 追記（TAB→EnterでもOK）<br>
       F1～F4           ：選択ラインの切り替え<br>
@@ -165,13 +167,16 @@
       ctrl + j         ： 表情、表記ゆれ変更、逆方向<br>
       ctrl + l         ： 情、表記ゆれ変更、順方向<br>
       ctrl + [         ： 括弧の変更<br>
-      ctrl + BackSpace ： 一つ前に戻る<br>
+      ctrl + @         ： 分割点挿入<br>
+      ctrl + BackSpace ： 一つ前に戻る
+      <br>
     </p>
-  
-    <br><br>
 
-    <p>ここのQRコード</p>
-    <img src="QR_SSEd.png">
+    <br>
+
+    <a href="QR_SSEd.png">ここのQRコード</a>
+    
+    
     <!-- <a href="./manual.html" style = "font-size: 200%;">マニュアル</a>    -->
 
 <!-- ----------------------------------------------------------------------------->
@@ -489,7 +494,7 @@
       var group_name3 = cha_data[cha_offset][face_offset-1]
       var face3 = cha_data[cha_offset][face_offset]
       var hint3 = ""
-      
+
       var group_num4 = cha_offset
       var face_num4 = face_offset
       var cha_num4 = cha_offset
@@ -527,7 +532,7 @@
               group_num1 = cha_offset
               break
             }
-              group_num1 +=1 
+              group_num1 +=1
           }
 
         }else if(group_num1 == cha_data.length-1){
@@ -625,7 +630,7 @@
         // document.getElementById("id_textbox1").focus()
         onButton_face1()
       }//----------------------------------------------------
-      
+
       function onButton_d1(){//キャラ　順方向
         if(cha_data.length-1 > cha_num1){
           if (cha_data[cha_num1+1][face_offset-1] == group_name1){
@@ -675,7 +680,7 @@
       //グループ変更２
       //------------------------------------------------------
       function onButton_g2(){
-        //グループナンバー　循環        
+        //グループナンバー　循環
         if (group_num2 < cha_data.length-1){
           group_num2 +=1
 
@@ -684,7 +689,7 @@
               group_num2 = cha_offset
               break
             }
-              group_num2 +=1 
+              group_num2 +=1
           }
 
         }else if(group_num2 == cha_data.length-1){
@@ -773,7 +778,7 @@
         // document.getElementById("id_textbox1").focus()
         onButton_face2()
       }//----------------------------------------------------
-      
+
       function onButton_d2(){//キャラ　順方向
         if(cha_data.length-1 > cha_num2){
           if (cha_data[cha_num2+1][face_offset-1] == group_name2){
@@ -823,7 +828,7 @@
       //グループ変更３
       //------------------------------------------------------
       function onButton_g3(){
-        //グループナンバー　循環        
+        //グループナンバー　循環
         if (group_num3 < cha_data.length-1){
           group_num3 +=1
 
@@ -832,7 +837,7 @@
               group_num3 = cha_offset
               break
             }
-              group_num3 +=1 
+              group_num3 +=1
           }
 
         }else if(group_num3 == cha_data.length-1){
@@ -914,7 +919,7 @@
         document.getElementById("id_btn_face3").value = face3
         onButton_face3()
       }//----------------------------------------------------
-      
+
       function onButton_d3(){//キャラ　順方向
         if(cha_data.length-1 > cha_num3){
           if (cha_data[cha_num3+1][face_offset-1] == group_name3){
@@ -962,7 +967,7 @@
       //グループ変更４
       //------------------------------------------------------
       function onButton_g4(){
-        //グループナンバー　循環        
+        //グループナンバー　循環
         if (group_num4 < cha_data.length-1){
           group_num4 +=1
 
@@ -971,7 +976,7 @@
               group_num4 = cha_offset
               break
             }
-              group_num4 +=1 
+              group_num4 +=1
           }
 
         }else if(group_num4 == cha_data.length-1){
@@ -1049,11 +1054,11 @@
         while(face4 == ""){
           face_num4 -= 1
           face4 = cha_data[cha_num4][face_num4]
-        }        
+        }
         document.getElementById("id_btn_face4").value = face4
         onButton_face4()
       }//----------------------------------------------------
-      
+
       function onButton_d4(){//キャラ　順方向
         if(cha_data.length-1 > cha_num4){
           if (cha_data[cha_num4+1][face_offset-1] == group_name4){
@@ -1116,13 +1121,13 @@
         document.getElementById("id_text_box").value = a_alltext
         document.getElementById("id_text_box").scrollTop = document.getElementById("id_text_box").scrollHeight
         del_tmp = a_alltext
-        
+
         onInput_text_box()
-        
+
         //記入欄　初期化
         document.forms.id_form1.id_textbox1.value = ""
         document.getElementById("id_textbox1").style.backgroundColor = "#ffffff"
-        
+
         //フォーカス
         cleave_count()
         document.getElementById("id_textbox1").focus()
@@ -1198,7 +1203,7 @@
         }
 
         onInput_text_box()
-        
+
       }
 
 
@@ -1262,7 +1267,7 @@
       }
 
       //コピー
-      function onButton_copy(){        
+      function onButton_copy(){
         document.getElementById("id_text_box").select()
         document.execCommand("copy")//非推奨　スマホ用 http
 
@@ -1272,7 +1277,7 @@
         // var copy_str =""
         // copy_str = document.getElementById("id_text_box").value
         // navigator.clipboard.writeText(copy_str)
-        
+
         // document.getElementById("id_textbox1").focus()
       }
 
@@ -1289,7 +1294,7 @@
           var c_all_array = b_alltext.split("\n")
           document.getElementById("id_c_row").value = ""
           for(i=0; i<=c_all_array.length-1; i++){
-            
+
             if(i != c_all_array.length-1){//配列の先頭でない
               if(c_all_array[c_all_array.length-1-i] == c_word){//分割文字列と一致
                 i +=1//読み飛ばす
@@ -1310,10 +1315,10 @@
           if (b_alltext != "") a_alltext = a_alltext + "\n\n" //追記する場合は改行をする
           a_alltext = a_alltext + c_word//分割文字列追加
         }
-        
+
         document.getElementById("id_text_box").value = a_alltext
         del_tmp = a_alltext
-        
+
         onInput_text_box()
 
         //フォーカス
@@ -1347,7 +1352,7 @@
         hint1 = hint1 + "②" + cha_data[cha_num][face_offset-2]
 
         if (hint1 != "") hint1 = hint1 + "\n"
-        hint1 = hint1 + "③" 
+        hint1 = hint1 + "③"
 
         //呼称----------------------------------------------------------------------
         //1行目 face1
@@ -1360,7 +1365,7 @@
                   al3 = true
                 }
               }
-            } 
+            }
           }
         }
 
@@ -1374,7 +1379,7 @@
                   al3 = true
                 }
               }
-            } 
+            }
           }
         }
 
@@ -1388,7 +1393,7 @@
                   al3 = true
                 }
               }
-            } 
+            }
           }
         }
 
@@ -1402,7 +1407,7 @@
                   al3 = true
                 }
               }
-            } 
+            }
           }
         }
         document.getElementById("id_textbox1").placeholder = hint1
@@ -1429,9 +1434,9 @@
       }
 
 
-      //ファイル      
+      //ファイル
       async function handleFile(e){
-        var file = e.target.files[0]   
+        var file = e.target.files[0]
         var data = await file.arrayBuffer()
         var workbook = XLSX.read(data)
 
@@ -1452,7 +1457,7 @@
             for(var col=range.s.c; col<=range.e.c; col++){
               cn = XLSX.utils.encode_cell({r:row, c:col})//セル変換
               if(sheet[cn] != undefined){
-                cell_str = sheet[cn].w              
+                cell_str = sheet[cn].w
               }else{
                 cell_str = ""
               }
@@ -1466,7 +1471,7 @@
 
         cha_data = []
         call_data = []
-        
+
         // cha_data.length = 0
         // call_data.length = 0
 
@@ -1475,7 +1480,7 @@
 
         // console.log(cha_data)
 
-        await ini_fun()              
+        await ini_fun()
       }
       document.getElementById("id_read").addEventListener("change", handleFile, false)
 
@@ -1571,6 +1576,9 @@
             e.returnValue = false
             onButton_back()
 
+          }else if(e.key === "@"){
+            onButton_c_point()
+
           }
 
 
@@ -1623,7 +1631,7 @@
         //       onButton_reset()
         //       break
         //   }
-               
+
         return false
       }
 
@@ -1687,7 +1695,7 @@
         document.getElementById("id_btn_face4").value = face4
 
         onButton_g2()
-        
+
         onButton_g3()
         onButton_g3()
 
